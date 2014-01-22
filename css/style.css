@@ -1,0 +1,258 @@
+body {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 62.5%;
+	color: #231405;
+	background-color: #E6D7C8;
+	margin: 0;
+	overflow: hidden;
+}
+
+::-moz-selection {background-color: transparent;}
+::-webkit-selection {background-color: transparent;}
+::selection {background-color: transparent;}
+
+section, article, header, footer {
+	display: block;
+}
+
+a {
+	text-decoration: none;
+}
+
+a[href]:hover {
+	border-bottom: 1px dashed;
+}
+
+section {
+	min-width: 16em;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+
+	display: none;
+	font-size: 1.5em;
+	background-color: #FFF;
+	padding: 1em;
+	-moz-border-radius: 8px;
+	-webkit-border-radius: 8px;
+	border-radius: 8px;
+
+	-moz-box-shadow: 0 0 20px rgba(0, 0, 0, .2);
+	-webkit-box-shadow: 0 0 20px rgba(0, 0, 0, .2);
+	box-shadow: 0 0 20px rgba(0, 0, 0, .2);
+}
+
+section a[rel] {
+	outline: none;
+	text-align: center;
+	cursor: pointer;
+	color: #FFF;
+	margin: .4em 0 0;
+	padding: .5em 2em;
+	display: block;
+	background-color: #827364;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	border-radius: 4px;
+	text-align: center;
+}
+
+section a[rel]:hover {
+	background-color: #665748;
+}
+
+section h1 {
+	margin: 0 0 .75em;
+	font-size: 1.5em;
+	font-weight: normal;
+	text-align: center;
+}
+
+section label {
+	display: block;
+	font-size: 1em;
+	margin: 0 0 .25em;
+}
+
+section p {
+	line-height: 1.25em;
+	text-align: justify;
+}
+
+
+#about a.em:after {
+	content: 'mailto:%6C%79%73%61%6E%64%65%72%67%72%61%79%40%67%6D%61%69%6C%2E%63%6F%6D');
+}
+
+#submit {
+	text-align: center;
+}
+
+#menu, #about, #scoreboard {
+	width: 16em;
+}
+
+#scoreboard a.score {
+	display: inline-block;
+	cursor: pointer;
+	font-size: 2em;
+	line-height: .6em;
+	padding: 0 .1em .2em;
+	font-weight: bold;
+	color: #D2C3B4;
+}
+
+#scoreboard a.score:hover {
+	color: #827364;
+}
+
+#scoreboard a.disabled {
+	color: #E9E9E9 !important;
+	cursor: default;
+}
+
+#scoreboard a.next {
+	float: right;
+}
+
+.scorelist {
+	margin: 0 .25em .5em;
+}
+
+.scorelist article {
+	overflow: hidden;
+	line-height: 1.5em;
+	font-size: 1em;
+}
+
+.scorelist strong, .scorelist b, .scorelist i {
+	float: left;
+}
+
+.scorelist strong {
+	font-weight: normal;
+	width: 10%;
+	text-align: right;
+	margin: 0 5% 0 0;
+}
+
+.scorelist strong:after {
+	content: '.';
+}
+
+.scorelist b {
+	font-weight: normal;
+	width: 70%;
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+.scorelist i {
+	font-style: normal;
+	width: 15%;
+	text-align: right;
+}
+
+#game a[rel] {
+	float: left;
+}
+
+#grid {
+	clear: both;
+	margin: 0 0 .5em;
+}
+
+#mode {
+	float: right;
+}
+
+#score {
+	float: left;
+}
+
+#submit em {
+	font-style: normal;
+}
+
+#preview {
+	display: none;
+	border-top: #BFB0A1 2px dashed;
+	min-height: 25px;
+	padding: .5em 0 0;
+	margin: .5em 0 0;
+	text-align: center;
+}
+
+#preview a {
+	cursor: default;
+	float: none;
+	display: inline-block;
+}
+
+#preview a span {
+	width: 10px;
+	height: 10px;
+}
+
+div.grid a {
+	float: left;
+	padding: 1px;
+	cursor: pointer;
+	outline: none;
+}
+
+div.grid a span {
+	display: block;
+	width: 24px;
+	height: 24px;
+	border: transparent 5px solid;
+	-moz-border-radius: 16px;
+	-webkit-border-radius: 16px;
+	border-radius: 16px;
+	-moz-box-shadow: 0 0 10px rgba(0, 0, 0, .3);
+	-webkit-box-shadow: 0 0 10px rgba(0, 0, 0, .3);
+	box-shadow: 0 0 10px rgba(0, 0, 0, .3);
+}
+
+div.grid a.matched span {
+	border-color: rgba(0, 0, 0, .5);
+}
+
+.c0 {visibility: hidden;}
+.c1 span {background-color: #3F9DF7;}
+.c2 span {background-color: #8AC43C;}
+.c3 span {background-color: #FE1243;}
+.c4 span {background-color: #FFD91C;}
+.c5 span {background-color: #FE30F7;}
+.c6 span {background-color: #ABDDEC;}
+
+input[type=text], div.select {
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	border-radius: 4px;
+
+	-moz-box-shadow: 0 0 5px rgba(0, 0, 0, .3) inset;
+	-webkit-box-shadow: 0 0 5px rgba(0, 0, 0, .3) inset;
+	box-shadow: 0 0 5px rgba(0, 0, 0, .3) inset;
+
+	border: #FFF 1px solid;
+	margin: 0 0 .5em;
+}
+
+input[type=text] {
+	font-size: 1em;
+	padding: .5em;
+	outline: none;
+}
+
+div.select {
+
+}
+
+select {
+	cursor: pointer;
+	width: 96%;
+	margin: 2%;
+	border: 0;
+	background-color: transparent;
+}

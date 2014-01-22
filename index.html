@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>jQuery port of Jawbreaker, complete with all four game modes</title>
+		<link rel="stylesheet" type="text/css" href="css/style.css"/>
+
+		<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js"></script>
+		<script type="text/javascript" src="js/lib/jquery.cookie.js"></script>
+		<script type="text/javascript" src="js/game.js"></script>
+	</head>
+
+<body>
+
+	<section id="menu">
+		<h1>jQuery.samegame</h1>
+		<a rel="nav new">New game</a>
+		<a rel="nav options">Game mode</a>
+		<a rel="nav scoreboard">High scores</a>
+		<a rel="nav about">About</a>
+	</section>
+
+	<section id="about">
+		<h1>About</h1>
+		<p>
+			Hello, my name is Andrei Neacșu. Please <a class="em">send me your
+			feedback</a>.
+		</p>
+		<br/>
+
+		<h1>Oh, and...</h1>
+		<p>
+			Don't try to run this in Internet Exploder. Won't work.
+		</p>
+		<a rel="nav menu">Menu</a>
+	</section>
+
+	<section id="scoreboard">
+		<h1>Top scores</h1>
+
+		<div class="select">
+		<select name="ruleset">
+			<option value="standard">Standard</option>
+			<option value="continuous">Continuous</option>
+			<option value="shifter">Shifter</option>
+			<option value="megashift">MegaShift</option>
+		</select>
+		</div>
+
+		<div class="scorelist">
+			<article>
+				<strong>1</strong>
+				<b>Ken</b>
+				<i>3180</i>
+			</article>
+		</div>
+
+		<a class="score next">&raquo;</a>
+		<a class="score prev">&laquo;</a>
+
+		<a rel="nav menu">Menu</a>
+	</section>
+
+	<section id="options">
+		<h1>Game mode</h1>
+		<a rel="nav menu ruleset standard">Standard</a>
+		<a rel="nav menu ruleset continuous">Continuous</a>
+		<a rel="nav menu ruleset shifter">Shifter</a>
+		<a rel="nav menu ruleset megashift">MegaShift</a>
+		<br/>
+		<a rel="nav menu">Cancel</a>
+	</section>
+
+	<section id="game">
+		<h1 id="mode"></h1>
+		<h1 id="score">Score: 0</h1>
+		<div class="grid" id="grid"></div>
+		<div class="grid" id="preview"></div>
+		<a rel="nav menu">Quit</a>
+	</section>
+
+	<section id="submit">
+		<h1>Final score: <em></em></h1>
+		<label>Enter your name</label>
+		<input type="text" id="playername" size="28"/>
+		<a rel="scoreboard">Submit score</a>
+	</section>
+
+</body>
+</html>
