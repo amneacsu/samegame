@@ -21,7 +21,7 @@ if ($op == 'set') {
 		mysql_query($query);
 	}
 } else if ($op == 'get') {
-    header('Content-type: application/json');
+	header('Content-type: application/json');
 
 	foreach (array('page', 'ruleset') as $h) {
 		if (isset($_POST[$h])) $$h = $_POST[$h];
@@ -32,8 +32,8 @@ if ($op == 'set') {
 	$select = mysql_query($query);
 	$output = '';
 	for ($i = 0; $i < mysql_num_rows($select); $i++) {
-	  	$row = mysql_fetch_assoc($select);
-  		$output .= json_encode($row) . ',';
+		$row = mysql_fetch_assoc($select);
+		$output .= json_encode($row) . ',';
 	}
 
 	echo '[' . substr($output, 0, -1) . ']';
