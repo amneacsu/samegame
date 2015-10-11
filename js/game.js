@@ -1,5 +1,4 @@
-
-var Samegame = function() {}
+var Samegame = function() {};
 
 Samegame.prototype = {
 	player: 'Anonymous',
@@ -384,10 +383,10 @@ Samegame.prototype = {
 		});
 
 	}
-}
+};
 
+var SamegameUI = function() {};
 
-var SamegameUI = function() {}
 SamegameUI.prototype = {
 	scorepage: 0,
 	maxpage: 9,
@@ -456,12 +455,12 @@ SamegameUI.prototype = {
 			}
 		});
 	}
-}
+};
 
 var game,ui;
 $(document).ready(function() {
-	ui = new SamegameUI;
-	game = new Samegame;
+	ui = new SamegameUI();
+	game = new Samegame();
 	game.init();
 	ui.init();
 
@@ -496,12 +495,12 @@ $(document).ready(function() {
 time = function() {
 	var x = new Date().getTime() / 1000;
 	debug(x - game.startTime);
-}
+};
 
 reset = function() {
 	var x = new Date().getTime() / 1000;
 	game.startTime = x;
-}
+};
 
 debug = function(message) {
 	if (typeof(console) != 'undefined') console.log(message);
