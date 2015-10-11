@@ -74,7 +74,7 @@ Samegame.prototype = {
 			return false;
 		}).click(function() {
 			if ($(this).hasClass('matched')) {
-				game.destroy();
+				game.removeMatched();
 			}
 		});
 		return this;
@@ -87,7 +87,7 @@ Samegame.prototype = {
 		}
 	},
 
-	resetSearch: function() {
+	resetMatched: function() {
 		this.e.tiles.filter('.matched').removeClass('matched');
 		this.matched = [];
 		this.verified = [];
@@ -95,11 +95,11 @@ Samegame.prototype = {
 	},
 
 	search: function(x) {
-		this.resetSearch();
+		this.resetMatched();
 		this.assimilate(x, this.grid[x]);
 
 		if (this.matched.length < 2) {
-			this.resetSearch();
+			this.resetMatched();
 		} else {
 			for (var i in this.matched) {
 				this.e.tiles.eq(this.matched[i]).addClass('matched');
@@ -112,7 +112,7 @@ Samegame.prototype = {
 	},
 
 	checkMoves: function() {
-		this.resetSearch();
+		this.resetMatched();
 		for (var y = 0; y < this.width; y++) {
 			for (var x = 0; x < this.height; x++) {
 				var i = y * this.width + x;
@@ -121,7 +121,7 @@ Samegame.prototype = {
 					if (this.matched.length > 1) {
 						return true;
 					} else {
-						this.resetSearch();
+						this.resetMatched();
 					}
 				}
 			}
@@ -152,7 +152,7 @@ Samegame.prototype = {
 		}
 	},
 
-	destroy: function() {
+	removeMatched: function() {
 		var x = this.matched.length;
 		if (x) {
 			this.moves++;
@@ -331,7 +331,7 @@ Samegame.prototype = {
 		return this;
 	},
 
-	switchMode: function(ruleset) {
+	switchRuleset: function(ruleset) {
 		$.cookie('anti_samegame_ruleset', ruleset);
 		$('#scoreboard select').val(ruleset);
 		this.ruleset = ruleset;
@@ -358,7 +358,7 @@ Samegame.prototype = {
 
 		var c = $.cookie('anti_samegame_ruleset');
 		if (c) this.ruleset = c;
-		this.switchMode(this.ruleset);
+		this.switchRuleset(this.ruleset);
 
 		var ref = this;
 
@@ -367,7 +367,7 @@ Samegame.prototype = {
 		});
 
 		$(document).click(function() {
-			ref.resetSearch();
+			ref.resetMatched();
 		});
 
 		this.e.submit.find('input').keyup(function(e) {
@@ -477,7 +477,7 @@ $(document).ready(function() {
 
 	$('#options a[rel~=ruleset]').click(function() {
 		var rel = $(this).attr('rel').split(' ')[3];
-		game.switchMode(rel);
+		game.switchRuleset(rel);
 	});
 
 	$('a[rel~=new]').click(function() {
