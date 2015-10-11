@@ -219,7 +219,6 @@ Samegame.prototype = {
 	shiftRight: function() {
 		if (!this.rules[this.ruleset].wind) return this;
 
-
 		for (var y = 0; y < this.height; y++) {
 			var row = [];
 			for (var x = 0; x < this.width; x++) {
@@ -348,8 +347,6 @@ Samegame.prototype = {
 	},
 
 	init: function() {
-		this.startTime = new Date().getTime() / 1000;
-
 		this.e = {
 			game: $('#game'),
 			grid: $('#grid'),
@@ -434,7 +431,6 @@ SamegameUI.prototype = {
 
 		var r = $.cookie('anti_samegame_ruleset');
 		if (!r) r = 'continuous';
-		$('#options a[rel~=ruleset]').filter('[rel~=' + r + ']').addClass('active');
 		$('#scoreboard select').val(r);
 
 		this.e.list = $('#scoreboard .scorelist');
@@ -486,25 +482,9 @@ $(document).ready(function() {
 
 	$('a[rel~=new]').click(function() {
 		game.newGame();
-	});//.click();
+	});
 
 });
-
-
-
-time = function() {
-	var x = new Date().getTime() / 1000;
-	debug(x - game.startTime);
-};
-
-reset = function() {
-	var x = new Date().getTime() / 1000;
-	game.startTime = x;
-};
-
-debug = function(message) {
-	if (typeof(console) != 'undefined') console.log(message);
-};
 
 function rand(from, to) {
 	return from + Math.floor(Math.random() * (to - from + 1));
